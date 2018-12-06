@@ -90,7 +90,7 @@ class FPNSSDBoxCoder:
         masked_ious = ious.clone()
         while True:
             i, j = argmax(masked_ious)
-            if masked_ious[i,j] < 1e-6:
+            if masked_ious[i,j] <= 1e-6:
                 break
             index[i] = j
             masked_ious[i,:] = 0
